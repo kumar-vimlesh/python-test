@@ -49,6 +49,9 @@ def run(sofy, db_label='database', blob_label=None, debug=False):
 
         try:
             with redirect_stdout(TeeStream(sys.stdout, output_buffer)):
+                # Marker to identify that this output came from vim-python-test-script (test branch)
+                print(f"=== Running vim-python-test-script (test branch) ==={NEWLINE}")
+
                 # Print available database connection factories to verify correct setup
                 print("Factories:", sofy.connection_factories)
                 print(f"{db_label} factory:", sofy.connection_factories.get(db_label))
